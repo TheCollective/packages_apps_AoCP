@@ -1,4 +1,4 @@
-package com.collective.personalizefragments;
+package com.collective.personalize.fragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
