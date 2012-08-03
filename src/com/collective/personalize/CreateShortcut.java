@@ -39,7 +39,7 @@ public class CreateShortcut extends LauncherActivity {
         String intentClass = shortcutIntent.getComponent().getClassName();
 
         shortcutIntent = new Intent();
-        shortcutIntent.setClass(getApplicationContext(), ROMControlActivity.class);
+        shortcutIntent.setClass(getApplicationContext(), AoCPActivity.class);
         shortcutIntent.setAction("com.collective.personalize.START_NEW_FRAGMENT");
         shortcutIntent.putExtra("collective_fragment_name", intentClass);
         shortcutIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
