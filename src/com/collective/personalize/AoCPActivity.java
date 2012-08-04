@@ -1,4 +1,3 @@
-
 package com.collective.personalize;
 
 import java.util.ArrayList;
@@ -212,15 +211,6 @@ public class AoCPActivity extends PreferenceActivity implements ButtonBarHandler
             Header header = target.get(i);
             // Ids are integers, so downcasting
             int id = (int) header.id;
-
-            if (id == R.id.led) {
-                if (!hasNotificationLed) {
-                    target.remove(header);
-                }
-            } else if (id == R.id.power_saver && mTablet)
-                target.remove(header);
-            else if (id == R.id.functionality & mTablet)
-                target.remove(header);
 
             // Increment if the current one wasn't removed by the Utils code.
             if (target.get(i) == header) {
