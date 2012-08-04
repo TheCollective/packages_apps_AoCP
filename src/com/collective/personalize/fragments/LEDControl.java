@@ -21,7 +21,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.collective.personalizeR;
+import com.collective.personalize.R;
 
 import net.margaritov.preference.colorpicker.ColorPickerDialog;
 
