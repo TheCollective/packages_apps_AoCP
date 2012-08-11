@@ -497,6 +497,9 @@
 		<item>GPS</item>
 		<item>WIFI</item>
 		<item>AIRPLANE_MODE</item>
+		<item>DATA</item>
+		<item>AP</item>
+		<item>TETHER</item>
 		<item>VIBRATE</item>
 		<item>SILENT</item>
 		<item>TORCH</item>
@@ -508,6 +511,9 @@
 		<item>BT</item>
 		<item>GPS</item>
 		<item>Wi-Fi</item>
+		<item>Data</item>
+		<item>Wifi AP</item>
+		<item>USB tether</item>
 		<item>Airplane mode</item>
 		<item>Vibrate</item>
 		<item>Silent</item>
