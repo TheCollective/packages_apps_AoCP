@@ -496,10 +496,10 @@
 		<item>BT</item>
 		<item>GPS</item>
 		<item>WIFI</item>
-		<item>AIRPLANE_MODE</item>
 		<item>DATA</item>
 		<item>AP</item>
 		<item>TETHER</item>
+		<item>AIRPLANE_MODE</item>
 		<item>VIBRATE</item>
 		<item>SILENT</item>
 		<item>TORCH</item>
