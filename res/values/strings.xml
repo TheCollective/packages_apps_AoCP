@@ -368,12 +368,12 @@
     <string name="reset_toggles_summary">Reset all toggles and their order</string>
 
 	<!-- Statusbar | Signal -->
-	<string name="signal_style">Signal Text Style</string>
-	<string name="signal_color_title">Signal color</string>
+	<string name="signal_style">Signal Style</string>
+	<string name="signal_color_title">Signal Text color</string>
 	<string name="hide_signal_title">Hide signal bars</string>
 	<string name="hide_signal_summary">Will also hide data indicator for now. Will be able to separate later.</string>
-	<string name="wifi_signal_style">WiFi Signal Text Style</string>
-	<string name="wifi_signal_color_title">WiFi Signal color</string>
+	<string name="wifi_signal_style">WiFi Signal Style</string>
+	<string name="wifi_signal_color_title">WiFi Signal Text color</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -546,15 +546,15 @@
 	<string name="profile_kornklown69">http://forum.xda-developers.com/member.php?u=3534303</string>
 	<string name="devs">Developers in order of collection</string>
 	<string name="collective">Android Open Collective Project</string>
-	<string name="collective_website_title">COLLECTIVE Website</string>
+	<string name="collective_website_title">THE COLLECTIVE Website</string>
 	<string name="collective_website_summary">www.????.org - Find all newest releases here. Still under construction</string>
-	<string name="collective_source_title">COLLECTIVE Source</string>
-	<string name="collective_source_summary">COLLECTIVE is fully open source. You can always check out the latest source at github.com/xAOCPx</string>
-    <string name="collective_review_title">COLLECTIVE Bug Review</string>
-    <string name="collective_review_summary">COLLECTIVE\'s bug Review instance for tracking and reporting</string>
+	<string name="collective_source_title">THE COLLECTIVE Source</string>
+	<string name="collective_source_summary">THE COLLECTIVE is fully open source. You can always check out the latest source at github.com/xAOCPx</string>
+    <string name="collective_review_title">THE COLLECTIVE Bug Review</string>
+    <string name="collective_review_summary">THE COLLECTIVE\'s bug Review instance for tracking and reporting</string>
     <string name="collective_gplus_title">Join us on Google Plus</string>
     <string name="collective_gplus_summary">https://plus.google.com/118410901028408865706/posts</string>
-    <string name="about_collective">About COLLECTIVE</string>
+    <string name="about_collective">About THE COLLECTIVE</string>
     <string name="about_collective_summary">@null</string>
 
     <!--  Kernel Tweaks -->
