@@ -98,7 +98,7 @@
 			collective:profileLink="@string/profile_plexicle" />
 			
 		<com.collective.personalize.widgets.DeveloperPreference
-			android:title="Carlos G."
+			android:title="Carlos"
 			collective:twitterHandle="CollectiveDevs"
 			collective:profileLink="@string/profile_kornklown69" />
 
