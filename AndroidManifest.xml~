@@ -76,13 +76,6 @@
                 <category android:name="com.collective.personalize.SHORTCUT" />
             </intent-filter>
         </activity>
-        <activity android:name=".fragments.PropModder"
-            android:label="Propmodder" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SHORTCUT" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".fragments.LEDControl"
             android:label="@string/title_led" >

@@ -22,7 +22,6 @@
     <string name="weather">Weather</string>
     <string name="tools">Tools</string>
     <string name="performance">Performance</string>
-    <string name="header_propmodder">Propmodder</string>
 
     <!-- Activity titles defined in AndroidManifest.xml -->
     <string name="title_about">About TheCollective</string>
