@@ -30,6 +30,11 @@
             android:title="@string/toggle_style_title" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="toggle_text_color"
+            android:title="@string/toggle_text_color_title"
+            android:defaultValue="#FF8E00" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="toggle_btn_enabled_color"
             android:title="@string/toggle_btn_enabled_color_title"
             android:defaultValue="#FF8E00" />
@@ -39,6 +44,9 @@
             android:title="@string/toggle_btn_disabled_color_title"
             android:defaultValue="#4C4C4C" />
 
+        <com.collective.personalize.widgets.SeekBarPreference
+            android:key="toggle_btn_background"
+            android:title="@string/toggle_btn_background_title" />
         <com.collective.personalize.widgets.SeekBarPreference
             android:key="toggle_btn_alpha"
             android:title="@string/toggle_button_alpha_title" />

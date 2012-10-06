@@ -302,7 +302,7 @@ public class Navbar extends AoCPPreferenceFragment implements
             int height = mapChosenDpToPixels(dp);
             Settings.System.putInt(getContentResolver(), Settings.System.NAVIGATION_BAR_HEIGHT,
                     height);
-            showDialog(DIALOG_NAVBAR_HEIGHT_REBOOT);
+            //showDialog(DIALOG_NAVBAR_HEIGHT_REBOOT);
             return true;
         } else if (preference == mNavigationBarHeightLandscape) {
             String newVal = (String) newValue;
@@ -311,7 +311,7 @@ public class Navbar extends AoCPPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.NAVIGATION_BAR_HEIGHT_LANDSCAPE,
                     height);
-            showDialog(DIALOG_NAVBAR_HEIGHT_REBOOT);
+            //showDialog(DIALOG_NAVBAR_HEIGHT_REBOOT);
             return true;
 
         } else if ((preference.getKey().startsWith("navbar_action"))
@@ -500,10 +500,18 @@ public class Navbar extends AoCPPreferenceFragment implements
                 }
 
                 Uri selectedImageUri = getTempFileUri();
-                Log.e(TAG, "Selected image path: " + selectedImageUri.getPath());
-                Bitmap bitmap = BitmapFactory.decodeFile(selectedImageUri.getPath());
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, iconStream);
-
+                try {
+                    Log.e(TAG, "Selected image path: " + selectedImageUri.getPath());
+                    Bitmap bitmap = BitmapFactory.decodeFile(selectedImageUri.getPath());
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, iconStream);
+                } catch (NullPointerException npe) {
+                    Log.e(TAG, "SeletedImageUri was null.");
+                    super.onActivityResult(requestCode, resultCode, data);
+                    return;
+                }
+                Settings.System.putString(
+                        getContentResolver(),
+                        Settings.System.NAVIGATION_CUSTOM_APP_ICONS[mPendingIconIndex], "");
                 Settings.System.putString(
                         getContentResolver(),
                         Settings.System.NAVIGATION_CUSTOM_APP_ICONS[mPendingIconIndex],
@@ -650,8 +658,12 @@ public class Navbar extends AoCPPreferenceFragment implements
                 return getResources().getDrawable(R.drawable.ic_sysbar_recent);
             } else if (uri.equals("**search**")) {
                 return getResources().getDrawable(R.drawable.ic_sysbar_search);
+            } else if (uri.equals("**screenshot**")) {
+                return getResources().getDrawable(R.drawable.ic_sysbar_screenshot);
             } else if (uri.equals("**menu**")) {
                 return getResources().getDrawable(R.drawable.ic_sysbar_menu_big);
+             } else if (uri.equals("**ime**")) {
+                return getResources().getDrawable(R.drawable.ic_sysbar_ime_switcher);
             } else if (uri.equals("**kill**")) {
                 return getResources().getDrawable(R.drawable.ic_sysbar_killtask);
             } else if (uri.equals("**power**")) {
@@ -692,8 +704,12 @@ public class Navbar extends AoCPPreferenceFragment implements
                 return getResources().getString(R.string.navbar_action_recents);
             else if (uri.equals("**search**"))
                 return getResources().getString(R.string.navbar_action_search);
+            else if (uri.equals("**screenshot**"))
+                return getResources().getString(R.string.navbar_action_screenshot);
             else if (uri.equals("**menu**"))
                 return getResources().getString(R.string.navbar_action_menu);
+            else if (uri.equals("**ime**"))
+                return getResources().getString(R.string.navbar_action_ime);
             else if (uri.equals("**kill**"))
                 return getResources().getString(R.string.navbar_action_kill);
             else if (uri.equals("**power**"))
@@ -730,6 +746,10 @@ public class Navbar extends AoCPPreferenceFragment implements
                         return; // NOOOOO
                     }
                     bmp.compress(Bitmap.CompressFormat.PNG, 100, iconStream);
+                    Settings.System
+                            .putString(
+                                    getContentResolver(),
+                                    Settings.System.NAVIGATION_CUSTOM_APP_ICONS[mPendingNavBarCustomAction.iconIndex], "");
                     Settings.System
                             .putString(
                                     getContentResolver(),

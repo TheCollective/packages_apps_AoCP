@@ -23,6 +23,13 @@
         android:icon="@drawable/ic_rom_control_lockscreens"
         android:summary="@string/header_summary_lockscreens" />
 
+    <header
+        android:id="@+id/power_menu"
+        android:fragment="com.collective.personalize.fragments.PowerMenu"
+        android:title="@string/power_menu"
+        android:icon="@drawable/ic_rom_control_power_menu"
+        android:summary="@string/header_summary_power_menu" />
+
      <header
         android:id="@+id/nav_bar"
         android:fragment="com.collective.personalize.fragments.Navbar"
@@ -59,6 +66,13 @@
         android:icon="@drawable/ic_rom_control_toggles"
         android:summary="@string/header_summary_toggles"
         android:title="@string/toggles_layout" />
+
+    <header
+        android:id="@+id/statusbar_signal"
+        android:title="@string/signal"
+        android:fragment="com.collective.personalizefragments.StatusBarSignal"
+        android:icon="@drawable/ic_rom_control_signal"
+        android:summary="@string/header_summary_signal" />
      
     <header
         android:id="@+id/system"
@@ -85,6 +99,12 @@
         android:summary="@string/header_summary_weather"
         android:icon="@drawable/ic_rom_control_weather" />
 
+    <header
+        android:id="@+id/vibrations"
+        android:fragment="com.collective.personalize.fragments.Vibrations"
+        android:title="@string/vibrations"
+        android:summary="@string/header_summary_vibrations"
+        android:icon="@drawable/ic_rom_control_vibrations" />
 
 
     <header

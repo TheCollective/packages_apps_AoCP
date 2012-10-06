@@ -21,21 +21,26 @@ import java.util.List;
 import com.collective.personalize.R;
 
 import com.collective.personalize.performance.CPUSettings;
+import com.collective.personalize.performance.DailyRebootScheduleService;
+import com.collective.personalize.performance.OtherSettings;
 import com.collective.personalize.performance.Voltage;
 import com.collective.personalize.performance.VoltageControlSettings;
 import com.collective.personalize.util.CMDProcessor;
+import com.collective.personalize.util.Helpers;
 import com.collective.personalize.weather.WeatherRefreshService;
 import com.collective.personalize.weather.WeatherService;
 
 public class BootService extends Service {
 
     public static boolean servicesStarted = false;
-    public static SharedPreferences preferences;
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        new BootWorker().execute();
-        return START_NOT_STICKY;
+        if (intent == null) {
+            stopSelf();
+        }
+        new BootWorker(this).execute();
+        return START_STICKY;
     }
 
     @Override
@@ -45,10 +50,15 @@ public class BootService extends Service {
 
     class BootWorker extends AsyncTask<Void, Void, Void> {
 
+        Context c;
+
+        public BootWorker(Context c) {
+            this.c = c;
+        }
+
         @Override
         protected Void doInBackground(Void... args) {
-            Context c = getApplicationContext();
-            preferences = PreferenceManager.getDefaultSharedPreferences(c);
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(c);
             final CMDProcessor cmd = new CMDProcessor();
 
             if (HeadphoneService.getUserHeadphoneAudioMode(c) != -1
@@ -63,7 +73,7 @@ public class BootService extends Service {
             if (Settings.System
                     .getBoolean(getContentResolver(), Settings.System.USE_WEATHER, false)) {
                 sendLastWeatherBroadcast();
-                getApplicationContext().startService(new Intent(c, WeatherRefreshService.class));
+                c.startService(new Intent(c, WeatherRefreshService.class));
             }
 
             if (preferences.getBoolean("cpu_boot", false)) {
@@ -75,32 +85,54 @@ public class BootService extends Service {
                         "gov", null);
                 final String io = preferences.getString("io", null);
                 if (max != null && min != null && gov != null) {
-                    cmd.su.runWaitFor("busybox echo " + max +
-                            " > " + CPUSettings.MAX_FREQ);
-                    cmd.su.runWaitFor("busybox echo " + min +
-                            " > " + CPUSettings.MIN_FREQ);
-                    cmd.su.runWaitFor("busybox echo " + gov +
-                            " > " + CPUSettings.GOVERNOR);
+                    boolean mIsTegra3 = c.getResources().getBoolean(
+                                com.android.internal.R.bool.config_isTegra3);
+                    int numOfCpu = 1;
+                    String numOfCpus = Helpers.readOneLine(CPUSettings.NUM_OF_CPUS);
+                    String[] cpuCount = numOfCpus.split("-");
+
+                    if (cpuCount.length > 1) {
+                        try {
+                            int cpuStart = Integer.parseInt(cpuCount[0]);
+                            int cpuEnd = Integer.parseInt(cpuCount[1]);
+
+                            numOfCpu = cpuEnd - cpuStart + 1;
+
+                            if (numOfCpu < 0)
+                                numOfCpu = 1;
+                        } catch (NumberFormatException ex) {
+                            numOfCpu = 1;
+                        }
+                    }
+
+                    for (int i = 0; i < numOfCpu; i++) {
+                        cmd.su.runWaitFor("busybox echo " + max +
+                            " > " + CPUSettings.MAX_FREQ
+                            .replace("cpu0", "cpu" + i));
+
+                        cmd.su.runWaitFor("busybox echo " + min +
+                            " > " + CPUSettings.MIN_FREQ
+                            .replace("cpu0", "cpu" + i));
+
+                        cmd.su.runWaitFor("busybox echo " + gov +
+                            " > " + CPUSettings.GOVERNOR.
+                            replace("cpu0", "cpu" + i));
+                    }
+
+                    if (mIsTegra3) {
+                        cmd.su.runWaitFor("busybox echo " + max +
+                            " > " + CPUSettings.TEGRA_MAX_FREQ);
+                    }
+
                     cmd.su.runWaitFor("busybox echo " + io +
                             " > " + CPUSettings.IO_SCHEDULER);
-                    if (new File("/sys/devices/system/cpu/cpu1").exists()) {
-                        cmd.su.runWaitFor("busybox echo " + max +
-                                " > " + CPUSettings.MAX_FREQ
-                                .replace("cpu0", "cpu1"));
-                        cmd.su.runWaitFor("busybox echo " + min +
-                                " > " + CPUSettings.MIN_FREQ
-                                .replace("cpu0", "cpu1"));
-                        cmd.su.runWaitFor("busybox echo " + gov +
-                                " > " + CPUSettings.GOVERNOR
-                                .replace("cpu0", "cpu1"));
-                    }
                 }
             }
 
             if (preferences.getBoolean(VoltageControlSettings
                     .KEY_APPLY_BOOT, false)) {
                 final List<Voltage> volts = VoltageControlSettings
-                    .getVolts(preferences);
+                        .getVolts(preferences);
                 final StringBuilder sb = new StringBuilder();
                 for (final Voltage volt : volts) {
                     sb.append(volt.getSavedMV() + " ");
@@ -109,32 +141,42 @@ public class BootService extends Service {
                         " > " + VoltageControlSettings.MV_TABLE0);
                 if (new File(VoltageControlSettings.MV_TABLE1).exists()) {
                     cmd.su.runWaitFor("busybox echo " +
-                    sb.toString() + " > " +
-                    VoltageControlSettings.MV_TABLE1);
+                            sb.toString() + " > " +
+                            VoltageControlSettings.MV_TABLE1);
+                }
+                if (new File(VoltageControlSettings.MV_TABLE2).exists()) {
+                    cmd.su.runWaitFor("busybox echo " +
+                            sb.toString() + " > " +
+                            VoltageControlSettings.MV_TABLE2);
+                }
+                if (new File(VoltageControlSettings.MV_TABLE3).exists()) {
+                    cmd.su.runWaitFor("busybox echo " +
+                            sb.toString() + " > " +
+                            VoltageControlSettings.MV_TABLE3);
                 }
             }
+            boolean FChargeOn = preferences.getBoolean("fast_charge_boot", false);
+            try {
+                File fastcharge = new File("/sys/kernel/fast_charge",
+                        "force_fast_charge");
+                FileWriter fwriter = new FileWriter(fastcharge);
+                BufferedWriter bwriter = new BufferedWriter(fwriter);
+                bwriter.write(FChargeOn ? "1" : "0");
+                bwriter.close();
+                Intent i = new Intent();
+                i.setAction("com.aokp.romcontrol.FCHARGE_CHANGED");
+                c.sendBroadcast(i);
+            } catch (IOException e) {
+            }
 
-            if (preferences.getBoolean("fast_charge_boot", false)) {
-                try {
-                    File fastcharge = new File("/sys/kernel/fastcharge",
-                            "force_fast_charge");
-                    FileWriter fwriter = new FileWriter(fastcharge);
-                    BufferedWriter bwriter = new BufferedWriter(fwriter);
-                    bwriter.write("1");
-                    bwriter.close();
-                    Intent i = new Intent();
-                    i.setAction("com.collective.personalize.FCHARGE_CHANGED");
-                    getApplicationContext().sendBroadcast(i);
-                } catch (IOException e) {
-                }
-
+            if (FChargeOn) {
                 // add notification to warn user they can only charge
-                CharSequence contentTitle = getApplicationContext()
+                CharSequence contentTitle = c
                         .getText(R.string.fast_charge_notification_title);
-                CharSequence contentText = getApplicationContext()
+                CharSequence contentText = c
                         .getText(R.string.fast_charge_notification_message);
 
-                Notification n = new Notification.Builder(getApplicationContext())
+                Notification n = new Notification.Builder(c)
                         .setAutoCancel(true)
                         .setContentTitle(contentTitle)
                         .setContentText(contentText)
@@ -145,19 +187,6 @@ public class BootService extends Service {
                 NotificationManager nm = (NotificationManager) getApplicationContext()
                         .getSystemService(Context.NOTIFICATION_SERVICE);
                 nm.notify(1337, n);
-            } else {
-                try {
-                    File fastcharge = new File("/sys/kernel/fastcharge",
-                            "force_fast_charge");
-                    FileWriter fwriter = new FileWriter(fastcharge);
-                    BufferedWriter bwriter = new BufferedWriter(fwriter);
-                    bwriter.write("0");
-                    bwriter.close();
-                    Intent i = new Intent();
-                    i.setAction("com.collective.personalize.FCHARGE_CHANGED");
-                    getApplicationContext().sendBroadcast(i);
-                } catch (IOException e) {
-                }
             }
 
             if (preferences.getBoolean("free_memory_boot", false)) {
@@ -169,6 +198,11 @@ public class BootService extends Service {
                 }
             }
 
+            if (OtherSettings.isDailyRebootEnabled(c)) {
+                c.startService(
+                        new Intent(c, DailyRebootScheduleService.class));
+            }
+
             return null;
         }
 
@@ -178,7 +212,11 @@ public class BootService extends Service {
             servicesStarted = true;
             stopSelf();
         }
+    }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 
     private void sendLastWeatherBroadcast() {

@@ -14,7 +14,9 @@
     <string name="general_ui">General UI</string>
     <string name="clock">Clock</string>
     <string name="battery">Battery</string>
+    <string name="signal">Signal</string>
     <string name="nav_bar">Navigation Bar</string>
+    <string name="power_menu">Power Menu</string>
     <string name="led_options">LED Options</string>
     <string name="header_system">System</string>
     <string name="sound">Sound</string>
@@ -31,6 +33,7 @@
     <string name="title_statusbar_toggles">Statusbar Toggles</string>
     <string name="title_statusbar_battery">Statusbar Battery</string>
     <string name="title_navbar">Navigation Bar</string>
+    <string name="title_power_menu">Power Menu</string>
     <string name="title_led">LED Control</string>
     <string name="title_lockscreens">Lockscreen Options</string>
     <string name="title_sound">Sound Settings</string>
@@ -43,12 +46,15 @@
     <string name="header_summary_toggles">@null</string>
     <string name="header_summary_general_ui">@null</string>
     <string name="header_summary_battery">@null</string>
+    <string name="header_summary_signal">@null</string>
     <string name="header_summary_navigation_bar">@null</string>
+    <string name="header_summary_power_menu">@null</string>
     <string name="header_summary_led">@null</string>
     <string name="header_summary_sound">@null</string>
     <string name="header_summary_performance">@null</string>
     <string name="header_summary_lockscreens">@null</string>
     <string name="header_summary_weather">@null</string>
+    <string name="header_summary_vibrations">@null</string>
 
     <!-- Menu Strings -->
     <string name="menu_nav_bar_reset">Reset nav bar</string>
@@ -59,6 +65,23 @@
     <string name="advanced_settings">Advanced settings</string>
     <string name="misc_short">Misc</string>
     <string name="custom_app_icon_successfully">"'s icon set successfully!"</string>
+
+    <!-- Power Menu -->
+    <string name="title_show_power_saver">Show power saver</string>
+    <string name="title_show_screenshot">Show screenshot</string>
+    <string name="title_show_torch_toggle">Show torch toggle</string>
+    <string name="title_show_airplane_toggle">Show airplane toggle</string>
+    <string name="title_show_navbar_hide">Show navigation bar toggle</string>
+
+    <!-- Power Saving -->
+    <string name="title_pref_powersaving_pref_mode">Enable power saver</string>
+    <string name="summary_pref_powersaving_pref_mode">@null</string>
+
+    <string name="title_pref_powersaving_data_screen_off">Screen off data action</string>
+    <string name="summary_pref_powersaving_data_screen_off">What to do with the data when the screen turns off</string>
+
+    <string name="title_pref_powersaving_data_screen_off_delay">Data action delay</string>
+    <string name="summary_pref_powersaving_data_screen_off_delay">How long to wait before applying data action?</string>
 
     <!-- Shortcut picker -->
     <string name="use_custom_app_title">Use custom application</string>
@@ -95,10 +118,16 @@
 	<string name="profile_kornklown69">http://forum.xda-developers.com/member.php?u=3534303</string>
 
     <!-- General UI -->
+    <string name="bootani_cat">Boot Animation</string>
+    <string name="navbar_cat">NavBar</string>
+    <string name="notification_cat">Notification</string>
     <string name="enable_volume_options">Enable Volume Panel</string>
     <string name="status_bar_notif_count_title">Show notification count</string>
     <string name="status_bar_notif_count_summary">Display number of pending notifications on the status bar</string>
     <string name="disable_bootanimation_title">Disable boot animation</string>
+    <string name="custom_bootanimation_title">Custom boot animation</string>
+    <string name="custom_bootanimation_summary">Select bootanimation zip from sdcard. Previous bootanimation will be backed up to /system/media.</string>
+    <string name="install_file_manager_error">No application found to pick the zip file. Please install a file manager.</string>
     <string name="notification_wallpaper_title">Choose notification background</string>
     <string name="notification_wallpaper_summary">You can remove the wallpaper from the menu in this window</string>
     <string name="notif_wallpaper_alpha_title">Notification background alpha</string>
@@ -108,6 +137,53 @@
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
     <string name="ime_switcher_title">Show IME Switcher</string>
     <string name="ime_switcher_summary">In statusbar, while typing (requires reboot)</string>
+    <string name="rotate_180_title">Allow 180 degree rotation</string>
+    <string name="rotate_180_summary">Allow your device to rotate upside down!</string>
+    <string name="recent_kill_all">Enable kill-all-button</string>
+    <string name="recent_kill_all_summary">Displays a button to kill all apps on recents window (requires UI restart)</string>
+    <string name="kill_app_longpress_back">Hold back to kill</string>
+    <string name="kill_app_longpress_back_summary">Holding back will kill the current activity</string>
+    <string name="tablet_ui">Force Tablet UI</string>
+    <string name="tablet_ui_summary">This will switch to Tablet UI (requires reboot)</string>
+    <string name="bootanimation_preview">Bootanimation preview</string>
+    <string name="apply">Apply</string>
+    <string name="creating_preview">Creating preview...</string>
+    <string name="error_reading_zip_file">Error reading zip file</string>
+    <string name="error_creating_preview">Error creating preview</string>
+    <string name="multipane_ui">Enable Dual panel</string>
+    <string name="multipane_ui_summary">This will Enable/Disable Dual panel view (requires reboot)</string>
+    <string name="alt_resolver">Use Alt Default App Grid</string>
+    <string name="alt_resolver_summary">Use Alternate (GB style) Default App Picker</string>
+
+    <!-- LCD Density -->
+    <string name="lcd_density_title">LCD Density</string>
+    <string name="lcd_density_summary">unknown</string>
+    <string name="current_lcd_density">"Current LCD Density: "</string>
+    <string name="lcd_density_wizard">LCD Density Wizard</string>
+    <string name="follow_through_title">Follow through!</string>
+    <string name="follow_through_summary">Make sure you follow the steps one-by-one and complete each one before proceeding to the next.</string>
+    <string name="stock_density_title">1. Change LCD Density to stock value</string>
+    <string name="stock_density_summary">Tablets and older phones use 160. Most phones use 240. Galaxy Nexus uses 320 by default.</string>
+    <string name="stock_density_changed_summary">"Density set to: "</string>
+    <string name="reboot_title">2. Reboot!</string>
+    <string name="reboot_summary">Come back here after the reboot and complete the rest of the steps!</string>
+    <string name="clear_market_data_title">3. Clear market data</string>
+    <string name="clear_market_data_cleared">Market data cleared</string>
+    <string name="clear_market_data_donot_cleared">"Market data couldn't be cleared, please clear it yourself!"</string>
+    <string name="dpi">DPI</string>
+    <string name="open_market_title">4. Open Market and hit accept</string>
+    <string name="open_market_summary">Press back when done to return here.</string>
+    <string name="open_market_summary_could_not_open">"Couldn't open the market! If you're sure it's installed, open it yourself from the launcher."</string>
+    <string name="custom_density_title">5. Change density to whatever you like!</string>
+    <string name="custom_density_summary">If you ever have compatibility issues with the market, be sure to return here and repeat the process.</string>
+    <string name="custom_density_summary_invalid">"INVALID DENSITY!"</string>
+    <string name="custom_density">custom</string>
+    <string name="set_custom_density_title">Set custom density</string>
+    <string name="set_custom_density_set">Set</string>
+    <string name="custom_density_dialog_title">"WARNING!"</string>
+    <string name="custom_density_dialog_summary">"Changing your LCD density can cause unexpected app behavior. If you encounter market app incompatibility please return here and restart the process from step 1."</string>
+    <string name="custom_density_dialog_button_got">Got it!</string>
+    <string name="custom_density_dialog_button_reboot">Reboot now</string>
 
     <!-- Statusbar | Toggles -->
     <string name="toggle_style_title">Toggle style</string>
@@ -125,12 +201,16 @@
     <string name="toggle_button_alpha_title">Toggle indicator alpha</string>
     <string name="toggle_btn_enabled_color_title">Enabled indicator color</string>
     <string name="toggle_btn_disabled_color_title">Disabled indicator color</string>
+    <string name="toggle_btn_background_title">Toggle background alpha</string>
+    <string name="toggle_text_color_title">Toggle text color</string>
 
     <!-- Statusbar | Clock -->
     <string name="clock_title_enable">Clock style</string>
     <string name="title_clock_ampm_entries">AM/PM style</string>
     <string name="enable_clock_weekday">Day of the week</string>
     <string name="enable_clock_weekday_summary">Abbreviated day of the week before the time</string>
+    <string name="colors">Colors</string>
+    <string name="clock_color_title">Clock color</string>
 
     <!-- Toggle Strings to be called from device overlays -->
     <string name="toggle_airplane_mode">Airplane Mode</string>
@@ -163,6 +243,16 @@
     <string name="battery_bar_animate_title">Charging animation</string>
     <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string>
 
+    <!-- Statusbar | Signal -->
+    <string name="signal_style">Signal text style</string>
+    <string name="signal_color_title">Signal color</string>
+    <string name="hide_signal_title">Hide signal bars</string>
+    <string name="hide_signal_summary">Updates when signal strength changes</string>
+    <string name="wifi_signal_style">WiFi signal text style</string>
+    <string name="wifi_signal_color_title">WiFi signal color</string>
+    <string name="alt_signal_title">Alt signal layout</string>
+    <string name="alt_signal_summary">Use alternate (GB style) signal cluster</string>
+
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
     <string name="press_color_to_apply">Press on Color to apply</string>
@@ -189,7 +279,9 @@
     <string name="navbar_action_back">Back</string>
     <string name="navbar_action_recents">Recents</string>
     <string name="navbar_action_search">Search</string>
+    <string name="navbar_action_screenshot">Screenshot</string>
     <string name="navbar_action_menu">Menu</string>
+    <string name="navbar_action_ime">Open IME Switcher</string>
     <string name="navbar_action_kill">Kill task</string>
     <string name="navbar_action_power">Power</string>
     <string name="navbar_action_notifications">Notifications</string>
@@ -200,7 +292,7 @@
     <string name="navigation_bar_height_summary">Navigation Bar height while in portrait.</string>
     <string name="navigation_bar_height_landscape_title">Navigation bar height landscape</string>
     <string name="navigation_bar_height_landscape_summary">Navigation Bar height while in landscape.</string>
-    <string name="navigation_bar_width_title">Navigation bar width.</string>
+    <string name="navigation_bar_width_title">Navigation bar width</string>
     <string name="navigation_bar_width_summary">Navigation Bar height if the bar is along a side.</string>
     <string name="navbar_enable_dialog_title">Reboot required!</string>
     <string name="navbar_enable_dialog_msg">You <b>should</b> reboot right now to make sure everything works properly!</string>
@@ -224,8 +316,24 @@
     <string name="led_time_on">Time Light Is On</string>
     <string name="led_off">LED Off</string>
     <string name="led_time_off">Time Light Is Off</string>
+    <string name="led_time_seconds">" seconds"</string>
     <string name="led_color_click">Click on the LED to change the color</string>
     <string name="title_led_screen_on">LED flash while screen ON</string>
+    <string name="led_custom_app">Selected App</string>
+    <string name="led_custom_default">Default</string>
+    <string name="led_change_app">Change</string>
+    <string name="led_delete_app">Delete</string>
+    <string name="led_keep_app">Keep</string>
+    <string name="led_custom_title">Custom LED Apps</string>
+    <string name="led_custom_message">"Would you like to change the app: "</string>
+    <string name="led_edit_button">-</string>
+    <string name="led_test_notification">Test LED</string>
+    <string name="led_test_notification_message_now">"Now testing LED for: "</string>
+    <string name="led_test_notification_message_note">".  Please turn off your screen to see the LED. Don't hit OK on this popup till you're done viewing the LED color."</string>
+    <string name="led_test_ok">OK</string>
+    <string name="title_charging_led_on">Enable LED while charging (needs reboot)</string>
+    <string name="led_change_brightness">Change brightness</string>
+    <string name="led_brightness_default">Default brightness: 31</string>
 
     <!-- Sound -->
     <string name="less_notification_sounds_title">Less Frequent Notification Sounds</string>
@@ -255,24 +363,35 @@
     <string name="title_phone_flip_mode">Phone Call Silence</string>
 
     <!-- Lockscreen -->
-    <string name="lockscreen_menu_unlock_title">Menu unlock</string>
-    <string name="lockscreen_menu_unlock_summary">Use the menu key to unlock the screen</string>
+    <string name="lockscreen_security_cat">Security</string>
+    <string name="lockscreen_layout_cat">Layout</string>
+    <string name="lockscreen_music_cat">Music</string>
+    <string name="lockscreen_weather_cat">Weather</string>
+    <string name="lockscreen_calendar_cat">Calendar</string>
+
     <string name="lockscreen_quick_unlock_control_title">Quick pin unlock</string>
     <string name="lockscreen_quick_unlock_control_summary">Unlock password/pin lockscreen without pressing enter button</string>
+    <string name="lockscreen_menu_unlock_title">Menu unlock</string>
+    <string name="lockscreen_menu_unlock_summary">Use the menu key to unlock the screen</string>
+    <string name="lockscreen_auto_rotate_title">Allow lockscreen rotation</string>
+    <string name="lockscreen_auto_rotate_summary">Lockscreen will have ability to rotate via device orientation. This is independent of Auto-rotation in display</string>
     <string name="lockscreen_battery_title">Lockscreen battery percentage</string>
     <string name="lockscreen_battery_summary">Always show battery percentage on the lockscreen</string>
     <string name="volume_rocker_wake_title">Volume wake</string>
     <string name="volume_rocker_wake_summary">Wake screen with volume rockers</string>
+    <string name="volume_music_controls_title">Volume music controls</string>
+    <string name="volume_music_controls_summary">Long press volume buttons to skip tracks while screen is off. Volume wake will not work when music is playing.</string>
+    <string name="lockscreen_stock_music_layout_title">Stock music layout</string>
+    <string name="lockscreen_stock_music_layout_summary">Use the stock layout when playing music.</string>
     <string name="lockscreen_wallpaper_title">Choose lockscreen wallpaper</string>
     <string name="lockscreen_wallpaper_summary">You can remove the wallpaper from the menu in this window</string>
+    <string name="lockscreen_text_color_title">Lockscreen text color</string>
     <string name="title_lockscreen_user_timeout_override">Wait to lock screen</string>
     <string name="summary_lockscreen_user_timeout_override">Use Android\'s timeout setting after you manually turn the screen off. The default behavior is to use the delay only when the screen times out by itself.</string>
-    <string name="lockscreen_weather_cat">Weather</string>
     <string name="lockscreen_weather_title">Enable</string>
     <string name="lockscreen_weather_summary">Show Weather Information on Lockscreen. You need to enable AoCP\'s Weather service to use this</string>
     <string name="lockscreen_weather_type_title">Lockscreen Weather style</string>
     <string name="lockscreen_weather_type_summary">Whether to show graphical or text weather information.</string>
-    <string name="lockscreen_calendar_cat">Calendar</string>
     <string name="lockscreen_calendar_title">Enable</string>
     <string name="lockscreen_calendar_summary">Show upcoming event(s) from your calendar on the lockscreen.</string>
     <string name="lockscreen_calendar_sources_title">Calendar sources</string>
@@ -299,6 +418,10 @@
     <string name="interface_softkeys_reboot_title">Reboot Menu</string>
     <string name="interface_softkeys_screenshot_title">Screenshot</string>
     <string name="interface_softkeys_screenoff_title">Screen Off</string>
+    <string name="interface_softkeys_ime_switcher_title">Open IME Switcher</string>
+    <string name="interface_softkeys_ring_vib_title">Toggle Ring/Vib</string>
+    <string name="interface_softkeys_ring_silent_title">Toggle Ring/Silent</string>
+    <string name="interface_softkeys_ring_vib_silent_title">Toggle Ring/Vib/Silent</string>
     <string name="interface_softkeys_kill_process_title">Kill App</string>
     <string name="interface_softkey_package_removed">The previously selected package was not found</string>
     <string name="interface_navring_settings_title">Navigation bar ring</string>
@@ -447,6 +570,9 @@
     <string name="fast_charge_notification_title">Fast Charge is ON!</string>
     <string name="fast_charge_notification_message">Phone is in charge-only mode!</string>
     <string name="prefcat_other_tweaks">Other tweaks</string>
+    <string name="performance_daily_reboot_title">Daily reboot</string>
+    <string name="performance_daily_reboot_summary">Reboot scheduled at %1$s</string>
+    <string name="performance_daily_reboot_summary_unscheduled">Not scheduled</string>
 
     <!-- Propmodder -->
     <string name="propmodder_title">Propmodder</string>
@@ -505,5 +631,195 @@
     <string name="pref_g_speed_summary">Uncap 3g speed</string>
     <string name="pref_gpu_title">GPU Acceleration</string>
     <string name="pref_gpu_summary">To enable hardware acceleration where the GPU controls the UI instead of the CPU</string>
+
+    <!-- Custom vibrations -->
+    <string name="vibrations">Vibrations</string>
+    <string name="defaultvibrationname">"'Default'"</string>
+    <string name="vib_new">New/Reset</string>
+    <string name="vib_load">Load</string>
+    <string name="vib_rec">Record</string>
+    <string name="vib_TAP">TAP!</string>
+    <string name="vib_stop">Stop</string>
+    <string name="vib_play">Play</string>
+    <string name="vib_save">Save</string>
+    <string name="vib_del">Delete</string>
+
+    <string name="vib_dialog_text_entry">Save vibration</string>
+    <string name="vib_dialog_name">Name:</string>
+    <string name="vib_cur_loaded_title">Loaded:</string>
+    <string name="help">Help</string>
+    <string name="vibration_detailed_help">You can create your custom vibration patterns in 5 simple steps:\n
+        - Tap New/Reset\n
+		- Tap Record\n
+		- Record your pattern by hitting the TAP! button\n
+		- Tap Stop\n
+		- Tap Save, enter a name and hit OK\n\n
+		You can check what you just recorded by tapping the Play button.\n
+		If you wish to modify an already saved pattern, tap Load, choose a pattern, re-record, and save it again (it will be overwritten, even if you choose another name).\n
+		To delete a pattern, tap Delete, choose your pattern and tap Delete again. You cannot delete the Default vibration.\n\n
+		You can choose the default vibration for your phone calls in Phone/Settings or in Settings/Sound.\n
+		You can assign custom vibration patterns to your contacts in the People app: after loading a contact tap Menu/Set vibration.</string>
+
+    <!-- boot animation stuff -->
+    <string name="insult_jerk">Jerk!</string>
+    <string name="insult_protekk">ProTekk!</string>
+
+    <!-- clock stuff -->
+    <string name="right_clock">Right clock</string>
+    <string name="center_clock">Center clock</string>
+    <string name="no_clock">No clock</string>
+    <string name="dont_show">Don\'t show</string>
+    <string name="small_am_pm">Small AM/PM</string>
+    <string name="regular_am_pm">Regular AM/PM</string>
+    <string name="protekk_oclock">ProTekk O\'Clock</string>
+    <string name="small_weekday">Small weekday</string>
+    <string name="regular_weekday">Regular weekday</string>
+
+    <!-- toggle style -->
+    <string name="icon_only">Icon only</string>
+    <string name="text_only">Text only</string>
+
+    <!-- Brightness slider -->
+    <string name="on_top">On top</string>
+    <string name="on_the_bottom">On the bottom</string>
+
+    <!-- Battery styles -->
+    <string name="icon_with_text">Icon with text</string>
+    <string name="icon_with_centered_text">Icon with centered text</string>
+    <string name="collectivemod">CollectiveMOD</string>
+
+    <!-- NavBar -->
+    <string name="right">Right</string>
+    <string name="left">Left</string>
+    <string name="both">Both</string>
+    <string name="default_jb_behavior">Default JB behavior</string>
+    <string name="always_show_invincible_icons">Always show invisible icons</string>
+    <string name="always_show">Always show</string>
+    <string name="default_jb_with_invincible_icons_when_hidden">Default JB with invisible icons when hidden</string>
+    <string name="home">Home</string>
+    <string name="back">Back</string>
+    <string name="recents">Recents</string>
+    <string name="search">Search</string>
+    <string name="screenshot">Screenshot</string>
+    <string name="menu">Menu</string>
+    <string name="toggle_widgets">Toggle Widgets</string>
+    <string name="open_ime_switcher">Open IME Switcher</string>
+    <string name="kill_app">Kill app</string>
+    <string name="power">Power</string>
+    <string name="notifications">Notifications</string>
+    <string name="custom_app">Custom app</string>
+    <string name="blank">Blank</string>
+    <string name="none">None</string>
+    <string name="take_screenshot">Take Screenshot</string>
+    <string name="ring_vib">Ring/Vib</string>
+    <string name="ring_silent">Ring/Silent</string>
+    <string name="ring_vib_silent">Ring/Vib/Silent</string>
+    <string name="screen_off">Screen Off</string>
+    <string name="google_now">Google Now</string>
+    <string name="select_application">Select Application</string>
+    <string name="one_target">1 target</string>
+    <string name="two_targets">2 targets</string>
+    <string name="three_targets">3 targets</string>
+    <string name="four_targets">4 targets</string>
+    <string name="five_targets">5 targets</string>
+    <string name="size_42_dp_default">42 dp (default)</string>
+    <string name="size_36_dp">36 dp</string>
+    <string name="size_30_dp">30 dp</string>
+    <string name="size_24_dp">24 dp</string>
+    <string name="size_48_dp_default">48 dp (default)</string>
+    <string name="size_44_dp">44 dp</string>
+    <string name="size_40_dp">40 dp</string>
+    <string name="size_42_dp">42 dp</string>
+    <string name="statusbar">Statusbar</string>
+    <string name="top_of_navbar">Top of navbar</string>
+    <string name="bottom_of_navbar">Bottom of navbar</string>
+    <string name="regular">Regular</string>
+    <string name="center_mirrored">Center-mirrored</string>
+    <string name="size_1_dp">1 dp</string>
+    <string name="size_2_dp">2 dp</string>
+    <string name="size_3_dp">3 dp</string>
+    <string name="size_4_dp">4 dp</string>
+
+    <!-- LED Values -->
+    <string name="time_0_seconds_off">Off</string>
+    <string name="time_0_2_seconds">.2 seconds</string>
+    <string name="time_0_5_seconds">.5 seconds</string>
+    <string name="time_1_second">1 second</string>
+    <string name="time_1_5_seconds">1.5 seconds</string>
+    <string name="time_2_seconds">2 seconds</string>
+    <string name="time_2_5_seconds">2.5 seconds</string>
+    <string name="time_3_seconds">3 seconds</string>
+    <string name="time_3_5_seconds">3.5 seconds</string>
+    <string name="time_4_seconds">4 seconds</string>
+    <string name="time_4_5_seconds">4.5 seconds</string>
+    <string name="time_5_seconds">5 seconds</string>
+    <string name="time_5_5_seconds">5.5 seconds</string>
+    <string name="time_6_seconds">6 seconds</string>
+    <string name="time_7_seconds">7 seconds</string>
+    <string name="time_8_seconds">8 seconds</string>
+    <string name="time_9_seconds">9 seconds</string>
+    <string name="time_10_seconds">10 seconds</string>
+
+    <!-- LED brightness entries -->
+    <string name="low">low</string>
+    <string name="medium">medium</string>
+    <string name="high">high</string>
+    <string name="very_high">very high</string>
+    <string name="laserbeam">laserbeam</string>
+
+    <!-- Flip phone entries -->
+    <string name="disabled">Disabled</string>
+    <string name="enabled">Enabled</string>
+    <string name="time_0_seconds_instant_off">0 seconds (Instant Off)</string>
+    <string name="time_15_seconds">15 seconds</string>
+    <string name="time_30_seconds">30 seconds</string>
+    <string name="time_45_seconds">45 seconds</string>
+    <string name="time_1_minute">1 minute</string>
+    <string name="time_1_5_minutes">1.5 minutes</string>
+    <string name="time_2_minutes">2 minutes</string>
+    <string name="time_2_5_minutes">2.5 minutes</string>
+    <string name="time_3_minutes">3 minutes</string>
+    <string name="time_3_5_minutes">3.5 minutes</string>
+    <string name="time_4_minutes">4 minutes</string>
+    <string name="time_5_minutes">5 minutes</string>
+
+    <!-- weather arrays -->
+    <string name="off">Off</string>
+    <string name="time_10_minutes">10 minutes</string>
+    <string name="time_30_minutes">30 minutes</string>
+    <string name="time_45_minutes">45 minutes</string>
+    <string name="time_60_minutes">60 minutes</string>
+    <string name="time_2_hours">2 hours</string>
+    <string name="time_3_hours">3 hours</string>
+    <string name="time_4_hours">4 hours</string>
+    <string name="time_6_hours">6 hours</string>
+    <string name="time_8_hours">8 hours</string>
+    <string name="above_carrier_text">Above carrier text</string>
+    <string name="weather_panel">Weather panel</string>
+    <string name="text">Text</string>
+
+    <!-- lockscreen calendar arrays -->
+    <string name="time_1_day">1 day</string>
+    <string name="time_2_days">2 days</string>
+    <string name="time_3_days">3 days</string>
+    <string name="time_4_days">4 days</string>
+    <string name="time_5_days">5 days</string>
+    <string name="time_6_days">6 days</string>
+    <string name="time_1_week">1 week</string>
+
+    <!-- minfree -->
+    <string name="size_25_mb">25mb</string>
+    <string name="size_50_mb">50mb</string>
+    <string name="size_75_mb">75mb</string>
+    <string name="size_80_mb">80mb</string>
+    <string name="size_100_mb">100mb</string>
+
+    <!-- less notification sounds -->
+    <string name="default_behavior">Default behavior</string>
+
+    <!-- signal style -->
+    <string name="show_signal_bars">Show signal bars</string>
+    <string name="show_signal_text">Show signal text</string>
+    <string name="show_with_dbm">Show with dBm</string>
 
 </resources>

@@ -93,6 +93,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".fragments.PowerMenu"
+            android:label="@string/title_power_menu" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.collective.personalize.SHORTCUT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".fragments.Lockscreens"
             android:label="@string/title_lockscreens" >
             <intent-filter>
@@ -135,6 +144,8 @@
         </activity>
         <activity
             android:name=".ShareToClipboard"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:icon="@drawable/ic_menu_clipboard"
             android:label="@string/title_clipboard_share" >
             <intent-filter>
                 <action android:name="android.intent.action.SEND"/>
@@ -144,12 +155,36 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".fragments.StatusBarSignal"
+            android:label="Statusbar Signal" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <!-- vibration manager -->
+        <activity android:name=".fragments.Vibrations"
+                android:label="@string/vibrations">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.collective.personalize.SHORTCUT" />
+            </intent-filter>
+        </activity>
+        <provider android:name=".vibrations.VibrationsProvider"
+			android:authorities="com.collective.personalize.Vibrations" /> 
+        <activity
             android:name="CreateShortcut"
             android:theme="@style/Theme.CreateShortCut" >
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
 
                 <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".fragments.DensityChanger"
+            android:label="@string/lcd_density_wizard" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
         <receiver
@@ -165,6 +200,15 @@
                 <action android:name="com.collective.personalize.INTENT_WEATHER_REQUEST" />
             </intent-filter>
         </receiver>
+        <receiver
+            android:name=".performance.RebootReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.collective.personalize.ACTION_DAILY_REBOOT" />
+                <action android:name="android.intent.action.SCREEN_OFF" />
+            </intent-filter>
+        </receiver>
+        <service android:name=".performance.DailyRebootScheduleService" />
         <service android:name=".service.BootService" />
         <service android:name=".service.HeadphoneService" />
         <service android:name=".service.FlipService" />

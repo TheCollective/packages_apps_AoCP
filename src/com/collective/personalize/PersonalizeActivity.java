@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
@@ -54,6 +55,7 @@ public class PersonalizeActivity extends PreferenceActivity implements ButtonBar
     Locale defaultLocale;
 
     boolean mTablet;
+    Vibrator mVibrator;
     protected boolean isShortcut;
 
     @Override
@@ -62,6 +64,7 @@ public class PersonalizeActivity extends PreferenceActivity implements ButtonBar
         mTablet = Settings.System
                 .getBoolean(getContentResolver(), Settings.System.TABLET_UI, false);
         hasNotificationLed = getResources().getBoolean(R.bool.has_notification_led);
+        mVibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         defaultLocale = Locale.getDefault();
         Log.i(TAG, "defualt locale: " + defaultLocale.getDisplayName());
         setLocale();
@@ -197,12 +200,22 @@ public class PersonalizeActivity extends PreferenceActivity implements ButtonBar
      * Populate the activity with the top-level headers.
      */
     @Override
-    public void onBuildHeaders(List<Header> headers) {
-        loadHeadersFromResource(R.xml.preference_headers, headers);
-
-        updateHeaderList(headers);
-
-        mHeaders = headers;
+    public void onBuildHeaders(List<Header> target) {
+        loadHeadersFromResource(R.xml.preference_headers, target);
+        for (int i=0; i<target.size(); i++) {
+            Header header = target.get(i);
+            if (header.id == R.id.led) {
+                if (!hasNotificationLed) {
+                    target.remove(i);
+                }
+            } else if (header.id == R.id.vibrations) {
+                if (mVibrator == null || !mVibrator.hasVibrator()) {
+                    target.remove(i);
+                }
+            }
+        }
+        updateHeaderList(target);
+        mHeaders = target;
     }
 
     /**
