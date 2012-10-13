@@ -51,6 +51,7 @@ import android.widget.Toast;
 
 import com.collective.personalize.AoCPPreferenceFragment;
 import com.collective.personalize.R;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class Lockscreens extends AoCPPreferenceFragment implements
         OnPreferenceChangeListener {

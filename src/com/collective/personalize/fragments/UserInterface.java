@@ -402,7 +402,7 @@ public class UserInterface extends AoCPPreferenceFragment {
                             Settings.System.CUSTOM_CARRIER_LABEL, value);
                     updateCustomLabelTextSummary();
                     Intent i = new Intent();
-                    i.setAction("com.aokp.romcontrol.LABEL_CHANGED");
+                    i.setAction("com.collective.personalize.LABEL_CHANGED");
                     mContext.sendBroadcast(i);
                 }
             });

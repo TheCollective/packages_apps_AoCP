@@ -4,22 +4,32 @@ package com.collective.personalize.util;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.security.SecureRandom;
+import java.util.Properties;
 import java.util.Date;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.aokp.romcontrol.util.CMDProcessor.CommandResult;
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+
+import com.collective.personalize.util.CMDProcessor.CommandResult;
 
 public class Helpers {
 
@@ -257,6 +267,51 @@ public class Helpers {
     public static void sendMsg(final Context c, final String msg) {
         if (c != null && msg != null) {
             msgLong(c, msg);
+        }
+    }
+
+    /*
+     * Mount System partition
+     *
+     * @param read_value ro for ReadOnly and rw for Read/Write
+     *
+     * @returns true for successful mount
+     */
+    public static boolean mountSystem(String read_value) {
+        String REMOUNT_CMD = "busybox mount -o %s,remount -t yaffs2 /dev/block/mtdblock1 /system";
+        final CMDProcessor cmd = new CMDProcessor();
+        Log.d(TAG, "Remounting /system " + read_value);
+        return cmd.su.runWaitFor(String.format(REMOUNT_CMD, read_value)).success();
+    }
+
+    /*
+     * Find value of build.prop item (/system can be ro or rw)
+     *
+     * @param prop /system/build.prop property name to find value of
+     *
+     * @returns String value of @param:prop
+     */
+    public static String findBuildPropValueOf(String prop) {
+        String mBuildPath = "/system/build.prop";
+        String DISABLE = "disable";
+        String value = null;
+        try {
+            //create properties construct and load build.prop
+            Properties mProps = new Properties();
+            mProps.load(new FileInputStream(mBuildPath));
+            //get the property
+            value = mProps.getProperty(prop, DISABLE);
+            Log.d(TAG, String.format("Helpers:findBuildPropValueOf found {%s} with the value (%s)", prop, value));
+        } catch (IOException ioe) {
+            Log.d(TAG, "failed to load input stream");
+        } catch (NullPointerException npe) {
+            //swallowed thrown by ill formatted requests
+        }
+
+        if (value != null) {
+            return value;
+        } else {
+            return DISABLE;
         }
     }
 

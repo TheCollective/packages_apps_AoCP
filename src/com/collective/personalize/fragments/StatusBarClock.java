@@ -19,6 +19,7 @@ public class StatusBarClock extends AoCPPreferenceFragment implements
 
     private static final String PREF_ENABLE = "clock_style";
     private static final String PREF_AM_PM_STYLE = "clock_am_pm_style";
+    private static final String PREF_COLOR_PICKER = "clock_color";
     private static final String PREF_CLOCK_WEEKDAY = "clock_weekday";
 
     ListPreference mClockStyle;

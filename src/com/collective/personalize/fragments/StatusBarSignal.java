@@ -14,7 +14,7 @@ import android.util.Log;
 import com.collective.personalize.R;
 import com.collective.personalize.AoCPPreferenceFragment;
 
-public class StatusBarSignal extends AOKPPreferenceFragment implements
+public class StatusBarSignal extends AoCPPreferenceFragment implements
         OnPreferenceChangeListener {
 
     ListPreference mDbmStyletyle;

@@ -164,7 +164,7 @@ public class BootService extends Service {
                 bwriter.write(FChargeOn ? "1" : "0");
                 bwriter.close();
                 Intent i = new Intent();
-                i.setAction("com.aokp.romcontrol.FCHARGE_CHANGED");
+                i.setAction("com.collective.personalize.FCHARGE_CHANGED");
                 c.sendBroadcast(i);
             } catch (IOException e) {
             }

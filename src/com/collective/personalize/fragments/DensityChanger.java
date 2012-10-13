@@ -23,7 +23,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
-import com.collective.personalize.AOKPPreferenceFragment;
+import com.collective.personalize.AoCPPreferenceFragment;
 import com.collective.personalize.R;
 import com.collective.personalize.util.CMDProcessor;
 import com.collective.personalize.util.CMDProcessor.CommandResult;
