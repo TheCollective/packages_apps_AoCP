@@ -45,10 +45,10 @@ public class PowerMenu extends PreferenceFragment {
         }
         mShowPowerSaver.setChecked(powerSaverVal != 0);
 
-        mShowTorchToggle = (CheckBoxPreference) findPreference(PREF_TORCH_TOGGLE);
-        mShowTorchToggle.setChecked(Settings.System.getInt(getActivity()
-                .getContentResolver(), Settings.System.POWER_DIALOG_SHOW_TORCH_TOGGLE,
-                0) == 1);
+ //       mShowTorchToggle = (CheckBoxPreference) findPreference(PREF_TORCH_TOGGLE);
+ //       mShowTorchToggle.setChecked(Settings.System.getInt(getActivity()
+ //               .getContentResolver(), Settings.System.POWER_DIALOG_SHOW_TORCH_TOGGLE,
+ //               0) == 1);
         */
      //   mShowScreenShot = (CheckBoxPreference) findPreference(PREF_SCREENSHOT);
      //   mShowScreenShot.setChecked(Settings.System.getInt(getActivity()
