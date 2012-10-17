@@ -16,6 +16,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:hardwareAccelerated="true"
@@ -83,12 +84,16 @@
                 <category android:name="android.intent.category.SHORTCUT" />
             </intent-filter>
         </activity>
+	<activity android:name=".util.ShowBuildProp">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".fragments.LEDControl"
             android:label="@string/title_led" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="com.collective.personalize.SHORTCUT" />
             </intent-filter>
         </activity>
@@ -97,7 +102,6 @@
             android:label="@string/title_power_menu" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="com.collective.personalize.SHORTCUT" />
             </intent-filter>
         </activity>
@@ -106,7 +110,6 @@
             android:label="@string/title_lockscreens" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="com.collective.personalize.SHORTCUT" />
             </intent-filter>
         </activity>
@@ -122,7 +125,6 @@
             android:label="@string/title_sound" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="com.collective.personalize.SHORTCUT" />
             </intent-filter>
         </activity>
@@ -176,7 +178,6 @@
             android:theme="@style/Theme.CreateShortCut" >
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

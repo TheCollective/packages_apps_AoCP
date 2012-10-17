@@ -35,7 +35,7 @@
         android:fragment="com.collective.personalize.fragments.Navbar"
         android:title="@string/nav_bar"
         android:icon="@drawable/ic_rom_control_navigation_bar"
-        android:summary="@string/header_summary_navigation_bar" /> -->
+        android:summary="@string/header_summary_navigation_bar" />  -->
 
     <header
         android:id="@+id/propmodder"
@@ -66,13 +66,13 @@
         android:icon="@drawable/ic_rom_control_toggles"
         android:summary="@string/header_summary_toggles"
         android:title="@string/toggles_layout" />
-<!--
-    <header
+
+ <!-- <header
         android:id="@+id/statusbar_signal"
         android:title="@string/signal"
         android:fragment="com.collective.personalizefragments.StatusBarSignal"
         android:icon="@drawable/ic_rom_control_signal"
-        android:summary="@string/header_summary_signal" /> -->
+        android:summary="@string/header_summary_signal" />  -->
      
     <header
         android:id="@+id/system"

@@ -50,20 +50,20 @@ public class PowerMenu extends PreferenceFragment {
                 .getContentResolver(), Settings.System.POWER_DIALOG_SHOW_TORCH_TOGGLE,
                 0) == 1);
         */
-        mShowScreenShot = (CheckBoxPreference) findPreference(PREF_SCREENSHOT);
-        mShowScreenShot.setChecked(Settings.System.getInt(getActivity()
-                .getContentResolver(), Settings.System.POWER_DIALOG_SHOW_SCREENSHOT,
-                0) == 1);
+     //   mShowScreenShot = (CheckBoxPreference) findPreference(PREF_SCREENSHOT);
+     //   mShowScreenShot.setChecked(Settings.System.getInt(getActivity()
+     //           .getContentResolver(), Settings.System.POWER_DIALOG_SHOW_SCREENSHOT,
+     //           0) == 1);
 
         mShowAirplaneToggle = (CheckBoxPreference) findPreference(PREF_AIRPLANE_TOGGLE);
         mShowAirplaneToggle.setChecked(Settings.System.getInt(getActivity()
                 .getContentResolver(), Settings.System.POWER_DIALOG_SHOW_AIRPLANE_TOGGLE,
                 1) == 1);
 
-        mShowNavBarHide = (CheckBoxPreference) findPreference(PREF_NAVBAR_HIDE);
-        mShowNavBarHide.setChecked(Settings.System.getBoolean(getActivity()
-                .getContentResolver(), Settings.System.POWER_DIALOG_SHOW_NAVBAR_HIDE,
-                false));
+      //  mShowNavBarHide = (CheckBoxPreference) findPreference(PREF_NAVBAR_HIDE);
+      //  mShowNavBarHide.setChecked(Settings.System.getBoolean(getActivity()
+      //          .getContentResolver(), Settings.System.POWER_DIALOG_SHOW_NAVBAR_HIDE,
+      //          false));
     }
 
     @Override

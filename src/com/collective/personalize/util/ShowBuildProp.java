@@ -39,8 +39,8 @@ public class ShowBuildProp extends AlertActivity {
     private static final String TAG = "PropModder :ShowBuildProp";
     private static final String MOUNT_RW = "busybox mount -o rw,remount -t yaffs2 /dev/block/mtdblock1 /system";
     private static final String MOUNT_RO = "busybox mount -o ro,remount -t yaffs2 /dev/block/mtdblock1 /system";
-    private static final String SHOWBUILD_PATH = "/system/tmp/showbuild";
-
+    private static final String SHOWBUILD_PATH = "/system/build.prop";
+ //   private static final String SHOWBUILD_PATH = "/system/tmp/showbuild";
     private final CMDProcessor cmd = new CMDProcessor();
 
     @Override
@@ -61,8 +61,8 @@ public class ShowBuildProp extends AlertActivity {
         try {
             //update the build.prop
             cmd.su.runWaitFor(MOUNT_RW);
-            cmd.su.runWaitFor("cp -f /system/build.prop " + SHOWBUILD_PATH);
-            cmd.su.runWaitFor("chmod 777 " + SHOWBUILD_PATH);
+    //        cmd.su.runWaitFor("cp -f /system/build.prop " + SHOWBUILD_PATH);
+    //        cmd.su.runWaitFor("chmod 777 " + SHOWBUILD_PATH);
 
             data = new StringBuilder(2048);
             char tmp[] = new char[2048];
@@ -77,9 +77,9 @@ public class ShowBuildProp extends AlertActivity {
             return;
         } finally {
             try {
-                if (reader != null) {
+        //        if (reader != null) {
                     reader.close();
-                }
+       //         }
             } catch (IOException e) {
                 Log.e(TAG, "IOException while closing reader:", e);
             }
