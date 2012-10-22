@@ -1,4 +1,3 @@
-
 package com.collective.personalize.fragments;
 
 import java.io.BufferedReader;
@@ -179,8 +178,8 @@ public class UserInterface extends AoCPPreferenceFragment {
                 Settings.System.SHOW_STATUSBAR_IME_SWITCHER, true));
 
         mRecentKillAll = (CheckBoxPreference) findPreference(PREF_RECENT_KILL_ALL);
-        mRecentKillAll.setChecked(Settings.System.getInt(getActivity  ().getContentResolver(),
-                Settings.System.RECENT_KILL_ALL_BUTTON, 0) == 1);
+        mRecentKillAll.setChecked(Settings.System.getBoolean(getActivity  ().getContentResolver(),
+                Settings.System.RECENT_KILL_ALL_BUTTON, false));
 
         mKillAppLongpressBack = (CheckBoxPreference) findPreference(PREF_KILL_APP_LONGPRESS_BACK);
                 updateKillAppLongpressBackOptions();
@@ -276,6 +275,8 @@ public class UserInterface extends AoCPPreferenceFragment {
             Settings.System.putBoolean(mContext.getContentResolver(),
                     Settings.System.MODE_TABLET_UI,
                     ((CheckBoxPreference) preference).isChecked());
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_TOGGLES_BRIGHTNESS_LOC, 3);
             return true;
         } else if (preference == mDualpane) {
             Settings.System.putBoolean(mContext.getContentResolver(),
@@ -378,10 +379,10 @@ public class UserInterface extends AoCPPreferenceFragment {
             return true;
         } else if (preference == mRecentKillAll) {
             boolean checked = ((CheckBoxPreference)preference).isChecked();
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.RECENT_KILL_ALL_BUTTON, checked ? 1 : 0);
-            Helpers.restartSystemUI();
+            Settings.System.putBoolean(getActivity().getContentResolver(),
+                    Settings.System.RECENT_KILL_ALL_BUTTON, checked ? true : false);
             return true;
+           
         } else if (preference == mKillAppLongpressBack) {
             writeKillAppLongpressBackOptions();
         } else if (preference == mCustomLabel) {
