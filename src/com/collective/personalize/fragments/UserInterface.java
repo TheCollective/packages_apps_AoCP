@@ -1,4 +1,3 @@
-
 package com.collective.personalize.fragments;
 
 import java.io.BufferedReader;
@@ -278,7 +277,6 @@ public class UserInterface extends AoCPPreferenceFragment {
                     ((CheckBoxPreference) preference).isChecked());
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_TOGGLES_BRIGHTNESS_LOC, 3);
-            return true;
             return true;
         } else if (preference == mDualpane) {
             Settings.System.putBoolean(mContext.getContentResolver(),
