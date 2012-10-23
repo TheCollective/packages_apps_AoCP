@@ -381,8 +381,8 @@ public class UserInterface extends AoCPPreferenceFragment {
             boolean checked = ((CheckBoxPreference)preference).isChecked();
             Settings.System.putBoolean(getActivity().getContentResolver(),
                     Settings.System.RECENT_KILL_ALL_BUTTON, checked ? true : false);
-            return true;
-           
+            Helpers.restartSystemUI();
+			return true;
         } else if (preference == mKillAppLongpressBack) {
             writeKillAppLongpressBackOptions();
         } else if (preference == mCustomLabel) {
