@@ -16,7 +16,7 @@ public class PowerMenu extends PreferenceFragment {
 
     // private static final String PREF_POWER_SAVER = "show_power_saver";
     // private static final String PREF_SCREENSHOT = "show_screenshot";
-    // private static final String PREF_TORCH_TOGGLE = "show_torch_toggle";
+    private static final String PREF_TORCH_TOGGLE = "show_torch_toggle";
     private static final String PREF_AIRPLANE_TOGGLE = "show_airplane_toggle";
     // private static final String PREF_NAVBAR_HIDE = "show_navbar_hide";
 
@@ -45,10 +45,10 @@ public class PowerMenu extends PreferenceFragment {
   //      }
  //       mShowPowerSaver.setChecked(powerSaverVal != 0);
 
- //       mShowTorchToggle = (CheckBoxPreference) findPreference(PREF_TORCH_TOGGLE);
- //       mShowTorchToggle.setChecked(Settings.System.getInt(getActivity()
- //               .getContentResolver(), Settings.System.POWER_DIALOG_SHOW_TORCH_TOGGLE,
- //               0) == 1);
+        mShowTorchToggle = (CheckBoxPreference) findPreference(PREF_TORCH_TOGGLE);
+        mShowTorchToggle.setChecked(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.POWER_DIALOG_SHOW_TORCH_TOGGLE,
+                0) == 1);
         */
      //   mShowScreenShot = (CheckBoxPreference) findPreference(PREF_SCREENSHOT);
      //   mShowScreenShot.setChecked(Settings.System.getInt(getActivity()

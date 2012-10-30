@@ -185,8 +185,9 @@ public class LEDControl extends Fragment implements ColorPickerDialog.OnColorCha
         mLedScreenOn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton v, boolean checked) {
                 Settings.Secure.putInt(mActivity.getContentResolver(),
-                    Settings.Secure.LED_SCREEN_ON, checked ? 1 : 0);
-                Log.i(TAG, "LED flash when screen ON is set to: " + checked);
+                        Settings.Secure.LED_SCREEN_ON, checked ? 1 : 0);
+                if (DEBUG)
+                    Log.i(TAG, "LED flash when screen ON is set to: " + checked);
             }
         });
 
@@ -384,8 +385,6 @@ public class LEDControl extends Fragment implements ColorPickerDialog.OnColorCha
                 Settings.System.NOTIFICATION_LIGHT_ON, on);
         offBlink = Settings.System.getInt(mActivity.getContentResolver(),
                 Settings.System.NOTIFICATION_LIGHT_OFF, off);
-        userColor = Settings.System.getInt(mActivity.getContentResolver(),
-                Settings.System.NOTIFICATION_LIGHT_COLOR, defaultColor);
 
         mOnTime.setText(getTimeString(onBlink));
         mOffTime.setText(getTimeString(offBlink));
