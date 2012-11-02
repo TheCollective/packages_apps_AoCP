@@ -116,6 +116,12 @@
 			aocp:twitterHandle="krowwf"
 			aocp:profileLink="@string/profile_kornklown69" />
 
+               <com.collective.personalize.widgets.DeveloperPreference
+			android:title="Cody"
+			aocp:nameDev="TheGreaterGood"
+			aocp:twitterHandle="CollectiveDevs"
+			aocp:profileLink="@string/profile_thegreatergood" />
+
 	</PreferenceCategory>
 
 </PreferenceScreen>

@@ -53,9 +53,9 @@ public class About extends AoCPPreferenceFragment {
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mSiteUrl) {
-            launchUrl("http://underconstruction");
+            launchUrl("http://collectivedev.org");
         } else if (preference == mSourceUrl) {
-            launchUrl("http://github.com/xaocpx");
+            launchUrl("http://github.com/TheCollective");
         } else if (preference == mReviewUrl) {
             launchUrl("http://in_development");
         } else if (preference == mgplusUrl) {

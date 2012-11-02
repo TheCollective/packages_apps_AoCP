@@ -94,9 +94,9 @@
     <string name="devs">The Crew</string>
     <string name="aocp">Android Open Collective Project</string>
     <string name="aocp_website_title">TheCollective Website</string>
-    <string name="aocp_website_summary">www.aocp.co - Find all newest releases here.</string>
+    <string name="aocp_website_summary">www.collectivedev.org - Find all newest releases here.</string>
     <string name="aocp_source_title">TheCollective Source</string>
-    <string name="aocp_source_summary">TheCollective is fully open source. You can always check out the latest source at github.com/aocp</string>
+    <string name="aocp_source_summary">TheCollective is fully open source. You can always check out the latest source at github.com/TheCollective</string>
     <string name="aocp_review_title">TheCollective Code Review</string>
     <string name="aocp_review_summary">TheCollective\'s Gerrit Review instance for submitting and testing patches</string>
     <string name="aocp_gplus_title">Join us on GooglePlus</string>
@@ -117,6 +117,7 @@
 	<string name="profile_ee23hd2">http://forum.xda-developers.com/member.php?u=2535093</string>
 	<string name="profile_plexicle">http://forum.xda-developers.com/member.php?u=4493228</string>
 	<string name="profile_kornklown69">http://forum.xda-developers.com/member.php?u=3534303</string>
+        <string name="profile_thegreatergood">http://forum.xda-developers.com/member.php?u=4846679</string>
 
     <!-- General UI -->
     <string name="bootani_cat">Boot Animation</string>
