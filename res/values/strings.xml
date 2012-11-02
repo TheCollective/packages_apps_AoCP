@@ -199,6 +199,11 @@
     <string name="toggles_display_close">Close</string>
     <string name="toggles_order_title">Toggle order</string>
     <string name="toggles_order_summary">Choose the order which your toggles are displayed</string>
+    <string name="title_settings_behavior">Use default settings behavior</string>
+    <string name="summary_settings_behavior_default">Short press for Settings, Long press for Toggles</string>
+    <string name="summary_settings_behavior_reverse">Short press for Toggles, Long press for Settings</string>
+    <string name="title_toggles_autohide">Auto hide toggles</string>
+    <string name="summary_toggles_autohide">Hide toggles after drawer closes.</string>
     <string name="brightness_location_title">Brightness location</string>
     <string name="reset_toggles_title">Reset toggles</string>
     <string name="reset_toggles_summary">Reset all toggles and their order</string>
@@ -215,6 +220,15 @@
     <string name="enable_clock_weekday_summary">Abbreviated day of the week before the time</string>
     <string name="colors">Colors</string>
     <string name="clock_color_title">Clock color</string>
+    <string name="alarm">Alarms</string>
+    <string name="nothing">Nothing</string>
+    <string name="today">Calendar for today</string>
+    <string name="event">Calendar new event</string>
+    <string name="voiceassist">Voice commands</string>
+    <string name="title_date_longclick">Date long click actions</string>
+    <string name="title_date_shortclick">Date short click actions</string>
+    <string name="title_clock_longclick">Clock long click actions</string>
+    <string name="title_clock_shortclick">Clock short click actions</string>
 
     <!-- Toggle Strings to be called from device overlays -->
     <string name="toggle_airplane_mode">Airplane Mode</string>
@@ -531,17 +545,19 @@
     <string name="weather_use_celcius">Metric units</string>
     <string name="weather_use_celcius_summary">Enabling this will display weather temperature in Celsius rather than Fahrenheit and windspeed in km/h rather than mph.</string>
     <string name="weather_statusbar_style">Statusbar weather style</string>
-    <string name="weather_start_custom_app">Start custom app</string>
-    <string name="weather_start_custom_app_summary">Start a custom app when clicking on the weather image.</string>
-    <string name="weather_custom_app_title">Custom app</string>
-    <string name="weather_custom_app_dialog_title">Choose your app</string>
-    <string name="weather_custom_app_dialog_message">Package name for now.</string>
+    <string name="title_weather_longclick">Weather panel long click actions</string>
+    <string name="title_weather_shortclick">Weather panel short click actions</string>
+    <string name="update">Update weather panel</string>
     <string name="weather_refreshing">Requesting weather update!</string>
     <string name="weather_loc_warning_title">Cannot retrieve location!</string>
     <string name="weather_loc_warning_msg">"Obtaining location from network is currently disabled. This breaks the ability to get the current weather in your current location. Please set a custom location or enable obtaining your location from your network."</string>
     <string name="weather_loc_warning_positive">"Enable network location"</string>
     <string name="weather_loc_warning_negative">"Don't enable."</string>
     <string name="menu_weather_get_weather">Get weather</string>
+    <string name="weather_statusbar_hide">Weather panel hide options</string>
+    <string name="always_on">Always visible</string>
+    <string name="same_toggles">Hide with toggles</string>
+    <string name="opposite_toggles">Hide opposite of toggles</string>
 
     <!-- Weather Codes -->
     <string name="weather_0">Tornado</string>
@@ -903,5 +919,9 @@
     <string name="show_signal_bars">Show signal bars</string>
     <string name="show_signal_text">Show signal text</string>
     <string name="show_with_dbm">Show with dBm</string>
+
+    <!-- haptic feedback on toggle press -->
+    <string name="toggles_enable_haptic_feedback_title">Enable haptic feedback</string>
+    <string name="toggles_enable_haptic_feedback_summary">Use haptic feedback when pressing toggles</string>
 
 </resources>
