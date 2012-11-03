@@ -39,7 +39,7 @@ public class IconPicker {
     public static final String RESOURCE_NAME = "resource_name";
     public static final String PACKAGE_NAME = "package_name";
     public static final int REQUEST_PICK_SYSTEM = 0;
-    public static final int REQUEST_PICK_AOKP = 1;
+    public static final int REQUEST_PICK_AOCP = 1;
     public static final int REQUEST_PICK_GALLERY = 2;
     public static final int REQUEST_PICK_ICON_PACK = 3;
 
@@ -61,7 +61,7 @@ public class IconPicker {
         Intent iconPack = new Intent(ICON_ACTION);
         final Map<String, Integer> items = new HashMap<String, Integer>();
         items.put(mResources.getString(R.string.icon_picker_system_icons_title), REQUEST_PICK_SYSTEM);
-        items.put(mResources.getString(R.string.icon_picker_aokp_icons_title), REQUEST_PICK_AOKP);
+        items.put(mResources.getString(R.string.icon_picker_aocp_icons_title), REQUEST_PICK_AOCP);
         items.put(mResources.getString(R.string.icon_picker_gallery_title), REQUEST_PICK_GALLERY);
         ComponentName aInfo = iconPack.resolveActivity(mParent.getPackageManager());
         if (aInfo != null) {
@@ -106,7 +106,7 @@ public class IconPicker {
                 }
             });
             dialog.show();
-        } else if (type == REQUEST_PICK_AOKP) {
+        } else if (type == REQUEST_PICK_AOCP) {
             ListView listie = new ListView(mParent);
             listie.setAdapter(new IconAdapter(type));
             final Dialog dialog = new Dialog(mParent);
@@ -156,9 +156,9 @@ public class IconPicker {
         if (type == IconPicker.REQUEST_PICK_SYSTEM) {
             labels = mResources.getStringArray(R.array.lockscreen_icon_picker_labels);
             icons = mResources.obtainTypedArray(R.array.lockscreen_icon_picker_icons);
-        } else if (type == IconPicker.REQUEST_PICK_AOKP) {
-            labels = mResources.getStringArray(R.array.lockscreen_aokp_icon_picker_labels);
-            icons = mResources.obtainTypedArray(R.array.lockscreen_aokp_icon_picker_icons);
+        } else if (type == IconPicker.REQUEST_PICK_AOCP) {
+            labels = mResources.getStringArray(R.array.lockscreen_aocp_icon_picker_labels);
+            icons = mResources.obtainTypedArray(R.array.lockscreen_aocp_icon_picker_icons);
         }
     }
 

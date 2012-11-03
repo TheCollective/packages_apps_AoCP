@@ -559,7 +559,7 @@ public class LockscreenTargets extends AoCPPreferenceFragment implements Shortcu
             mDialogLabel.setText(EMPTY_LABEL);
             mDialogLabel.setTag(GlowPadView.EMPTY_TARGET);
             mDialogIcon.setImageResource(R.drawable.ic_empty);
-        } else if (requestCode == IconPicker.REQUEST_PICK_SYSTEM || requestCode == IconPicker.REQUEST_PICK_AOKP || requestCode == IconPicker.REQUEST_PICK_GALLERY
+        } else if (requestCode == IconPicker.REQUEST_PICK_SYSTEM || requestCode == IconPicker.REQUEST_PICK_AOCP || requestCode == IconPicker.REQUEST_PICK_GALLERY
                 || requestCode == IconPicker.REQUEST_PICK_ICON_PACK) {
             mIconPicker.onActivityResult(requestCode, resultCode, data);
         } else if (requestCode != Activity.RESULT_CANCELED && resultCode != Activity.RESULT_CANCELED){
@@ -677,7 +677,7 @@ public class LockscreenTargets extends AoCPPreferenceFragment implements Shortcu
             ic = mResources.getDrawable(mResources.getIdentifier(resourceName, "drawable", "android")).mutate();
             iconType = GlowPadView.ICON_RESOURCE;
             iconSource = resourceName;
-        } else if (requestCode == IconPicker.REQUEST_PICK_AOKP) {
+        } else if (requestCode == IconPicker.REQUEST_PICK_AOCP) {
             String resourceName = in.getStringExtra(IconPicker.RESOURCE_NAME);
             ic = mResources.getDrawable(mResources.getIdentifier(resourceName, "drawable", "android")).mutate();
             iconType = GlowPadView.ICON_RESOURCE;
