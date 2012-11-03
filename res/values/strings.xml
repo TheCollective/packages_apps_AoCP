@@ -485,32 +485,32 @@
     <string name="icon_picker_unlock">Unlock</string>
     <string name="icon_picker_title">Choose icon source</string>
     <string name="icon_picker_system_icons_title">System icons</string>
-    <string name="icon_picker_aokp_icons_title">AOKP icons</string>
+    <string name="icon_picker_aocp_icons_title">AOCP icons</string>
     <string name="icon_picker_gallery_title">Gallery</string>
 
-    <string name="aokp_icon_picker_aokp">AOKP Now</string>
-    <string name="aokp_icon_picker_browser">Browser</string>
-    <string name="aokp_icon_picker_calendar">Calendar</string>
-    <string name="aokp_icon_picker_camera">Camera</string>
-    <string name="aokp_icon_picker_clock">Clock</string>
-    <string name="aokp_icon_picker_email">Email</string>
-    <string name="aokp_icon_picker_facebook">Facebook</string>
-    <string name="aokp_icon_picker_gallery">Gallery</string>
-    <string name="aokp_icon_picker_googleplus">Google Plus</string>
-    <string name="aokp_icon_picker_googletalk">Google Talk</string>
-    <string name="aokp_icon_picker_maps">Maps</string>
-    <string name="aokp_icon_picker_movie">Movie</string>
-    <string name="aokp_icon_picker_music">Music</string>
-    <string name="aokp_icon_picker_navigation">Navigation</string>
-    <string name="aokp_icon_picker_phone">Phone</string>
-    <string name="aokp_icon_picker_podcast">Podcast</string>
-    <string name="aokp_icon_picker_rss">Rss</string>
-    <string name="aokp_icon_picker_sms">Messaging</string>
-    <string name="aokp_icon_picker_unlock">Unlock</string>
-    <string name="aokp_icon_picker_video">Video</string>
-    <string name="aokp_icon_picker_title">Choose icon source</string>
-    <string name="aokp_icon_picker_system_icons_title">System icons</string>
-    <string name="aokp_icon_picker_gallery_title">Gallery</string>
+    <string name="aocp_icon_picker_aocp">AOCP Now</string>
+    <string name="aocp_icon_picker_browser">Browser</string>
+    <string name="aocp_icon_picker_calendar">Calendar</string>
+    <string name="aocp_icon_picker_camera">Camera</string>
+    <string name="aocp_icon_picker_clock">Clock</string>
+    <string name="aocp_icon_picker_email">Email</string>
+    <string name="aocp_icon_picker_facebook">Facebook</string>
+    <string name="aocp_icon_picker_gallery">Gallery</string>
+    <string name="aocp_icon_picker_googleplus">Google Plus</string>
+    <string name="aocp_icon_picker_googletalk">Google Talk</string>
+    <string name="aocp_icon_picker_maps">Maps</string>
+    <string name="aocp_icon_picker_movie">Movie</string>
+    <string name="aocp_icon_picker_music">Music</string>
+    <string name="aocp_icon_picker_navigation">Navigation</string>
+    <string name="aocp_icon_picker_phone">Phone</string>
+    <string name="aocp_icon_picker_podcast">Podcast</string>
+    <string name="aocp_icon_picker_rss">Rss</string>
+    <string name="aocp_icon_picker_sms">Messaging</string>
+    <string name="aocp_icon_picker_unlock">Unlock</string>
+    <string name="aocp_icon_picker_video">Video</string>
+    <string name="aocp_icon_picker_title">Choose icon source</string>
+    <string name="aocp_icon_picker_system_icons_title">System icons</string>
+    <string name="aocp_icon_picker_gallery_title">Gallery</string>
 
     <string name="icon_picker_pack_title">Icon pack</string>
     <string name="lockscreen_target_empty">Empty</string>
@@ -525,11 +525,11 @@
     <string name="lockscreen_target_edit_title">Edit target and icon</string>
     <string name="lockscreen_target_edit_msg">Select or change the desired application or activity and the associated icon</string>
 
-    <string name="aokp_3targets">3 Targets</string>
-    <string name="aokp_4targets">4 Targets</string>
-    <string name="aokp_5targets">5 Targets</string>
-    <string name="aokp_6targets">6 Targets</string>
-    <string name="aokp_8targets">8 Targets</string>
+    <string name="aocp_3targets">3 Targets</string>
+    <string name="aocp_4targets">4 Targets</string>
+    <string name="aocp_5targets">5 Targets</string>
+    <string name="aocp_6targets">6 Targets</string>
+    <string name="aocp_8targets">8 Targets</string>
 
     <!-- Weather -->
     <string name="weather_enable">Enable weather</string>
