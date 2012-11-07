@@ -26,6 +26,7 @@ public class Sound extends AoCPPreferenceFragment
         implements OnPreferenceChangeListener {
 
     private static final String PREF_ENABLE_VOLUME_OPTIONS = "enable_volume_options";
+	private static final String PREF_ENABLE_QUIETTIME = "enable_quiettime";
     private static final String PREF_HEADPHONES_PLUGGED_ACTION = "headphone_audio_mode";
     private static final String PREF_BT_CONNECTED_ACTION = "bt_audio_mode";
     private static final String PREF_FLIP_ACTION = "flip_mode";
@@ -36,6 +37,7 @@ public class Sound extends AoCPPreferenceFragment
 
     SharedPreferences prefs;
     CheckBoxPreference mEnableVolumeOptions;
+	CheckBoxPreference mEnableQuietTime;
     ListPreference mHeadphonesPluggedAction;
     ListPreference mBTPluggedAction;
     ListPreference mFlipAction;
@@ -56,6 +58,11 @@ public class Sound extends AoCPPreferenceFragment
         mEnableVolumeOptions.setChecked(Settings.System.getBoolean(getActivity()
                 .getContentResolver(),
                 Settings.System.ENABLE_VOLUME_OPTIONS, false));
+				
+		mEnableQuietTime = (CheckBoxPreference) findPreference(PREF_ENABLE_QUIETTIME);
+        mEnableQuietTime.setChecked(Settings.System.getBoolean(getActivity()
+                .getContentResolver(),
+                Settings.System.ENABLE_QUIETTIME, false));		
 
         mAnnoyingNotifications = (ListPreference) findPreference(PREF_LESS_NOTIFICATION_SOUNDS);
         mAnnoyingNotifications.setOnPreferenceChangeListener(this);
@@ -94,7 +101,13 @@ public class Sound extends AoCPPreferenceFragment
                     Settings.System.ENABLE_VOLUME_OPTIONS, checked);
             return true;
 
-        }
+        } else if (preference == mEnableQuietTime) {
+		     boolean checked = ((CheckBoxPreference) preference).isChecked();
+            Settings.System.putBoolean(getActivity().getContentResolver(),
+                    Settings.System.ENABLE_QUIETTIME, checked);
+            return true;
+		
+		}
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 

@@ -4,6 +4,10 @@
     <CheckBoxPreference
         android:key="enable_volume_options"
         android:title="@string/enable_volume_options" />
+	
+    <CheckBoxPreference
+        android:key="enable_quiettime"
+        android:title="@string/enable_quiettime" />	
 
     <ListPreference
         android:entries="@array/less_notification_sounds_entries"
