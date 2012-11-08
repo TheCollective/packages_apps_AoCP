@@ -382,6 +382,7 @@
     <string name="summary_phone_flip_mode">Flip your phone to silent when receiving a call</string>
     <string name="title_phone_flip_mode">Phone Call Silence</string>
     <string name="enable_quiettime">Enable Quiettime</string>
+    <string name="summary_quiettime">Autorestore sound setting timer</string>
     <!-- Lockscreen -->
     <string name="lockscreen_security_cat">Security</string>
     <string name="lockscreen_layout_cat">Layout</string>
